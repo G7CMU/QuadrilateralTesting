@@ -40,6 +40,17 @@ public class Quadrilateral
         return Math.Max(area_AC, area_BD);
     }
 
+    public Boolean IsValid()
+    {
+        if (A == null || B == null || C == null || D == null) return false;
+        if (A.ToString() ==  B.ToString()) return false;
+        if (A.ToString() ==  C.ToString()) return false;
+        if (A.ToString() ==  D.ToString()) return false;
+        if (B.ToString() ==  C.ToString()) return false;
+        if (C.ToString() ==  D.ToString()) return false;
+        return true;
+    }
+
     public override string ToString()
     {
         return "Q[" +

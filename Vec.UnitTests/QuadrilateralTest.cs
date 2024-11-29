@@ -37,4 +37,36 @@ internal class QuadrilateralTest
             Is.EqualTo(area)
         );
     }
+
+    [Test]
+    public void checkValidQuadrilateral00_40_44_04()
+    {
+        Quadrilateral quadr = new Quadrilateral(
+            new Point(0, 0),
+            new Point(4, 0),
+            new Point(4, 4),
+            new Point(0, 4)
+        );
+
+        Assert.That(
+            quadr.IsValid(),
+            Is.EqualTo(true)
+        );
+    }
+
+    [Test]
+    public void checkInvalidQuadrilateral00_40_44_04()
+    {
+        Quadrilateral quadr = new Quadrilateral(
+            new Point(0, 0),
+            new Point(4, 4),
+            new Point(4, 4),
+            new Point(0, 4)
+        );
+
+        Assert.That(
+            quadr.IsValid(),
+            Is.EqualTo(false)
+        );
+    }
 }
