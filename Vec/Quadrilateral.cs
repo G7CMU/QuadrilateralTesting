@@ -27,15 +27,20 @@ public class Quadrilateral
 
     public double Area()
     {
+        double area_AC = 0,
+            area_BD = 0;
         // div by AC
         Triangle t1_AC = new Triangle(A, B, C);
         Triangle t2_AC = new Triangle(A, D, C);
-        double area_AC = t1_AC.Area() + t2_AC.Area();
+
+        if (t1_AC.IsValid() && t2_AC.IsValid())
+            area_AC = t1_AC.Area() + t2_AC.Area();
 
         // div by BD
         Triangle t1_BD = new Triangle(A, B, D);
         Triangle t2_BD = new Triangle(B, C, D);
-        double area_BD = t1_BD.Area() + t2_BD.Area();
+        if (t1_BD.IsValid() && t2_BD.IsValid())
+            area_BD = t1_BD.Area() + t2_BD.Area();
 
         return Math.Max(area_AC, area_BD);
     }

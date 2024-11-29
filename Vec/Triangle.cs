@@ -1,4 +1,6 @@
-﻿namespace Geometry;
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace Geometry;
 
 public class Triangle
 {
@@ -34,6 +36,16 @@ public class Triangle
         //double p = this.Perimeter() / 2.0;
 
         //return Math.Sqrt(p * (p - AB) * (p - AC) * (p - BC));
+    }
+
+    public Boolean IsValid()
+    {
+        Vector AB = new Vector(A, B);
+        Vector AC = new Vector(A, B);
+        Vector BC = new Vector(B, C);
+
+        if (AB.CrossProduct(AC) == 0 && AC.CrossProduct(BC) == 0) return false;
+        return true;
     }
 
     public override string ToString()

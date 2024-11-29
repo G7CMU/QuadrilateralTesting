@@ -71,4 +71,28 @@ internal class TriangleTest
 
         Assert.That(t.Perimeter(), Is.EqualTo(result));
     }
+
+    [Test]
+    public void validateTriangleFrom3PointOnLine()
+    {
+        Triangle t = new Triangle(
+            new Point(0, 0),
+            new Point(4, 0),
+            new Point(5, 0)
+        );
+
+        Assert.That(t.IsValid(), Is.EqualTo(false));
+    }
+
+    [Test]
+    public void validateValidTriangle()
+    {
+        Triangle t = new Triangle(
+            new Point(0, 0),
+            new Point(4, 0),
+            new Point(5, 5)
+        );
+
+        Assert.That(t.IsValid(), Is.EqualTo(true));
+    }
 }
